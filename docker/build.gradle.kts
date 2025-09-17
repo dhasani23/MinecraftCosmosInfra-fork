@@ -29,7 +29,8 @@ dependencies {
     implementation("io.ktor:ktor-server-netty:2.3.10")
 
     // AWS
-    implementation("com.amazonaws:aws-java-sdk-s3:1.12.304") // TODO migrate to AWS SDK v2
+    implementation("software.amazon.awssdk:s3:2.25.31")
+    implementation("software.amazon.awssdk:s3-transfer-manager:2.25.31")
     implementation("com.amazonaws:aws-java-sdk-ec2:1.12.691")
     implementation("com.amazonaws:aws-java-sdk-ecs:1.12.691")
     implementation("software.amazon.awssdk:dynamodb-enhanced:2.25.31")

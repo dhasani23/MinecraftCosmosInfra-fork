@@ -1,16 +1,18 @@
 package com.lilaceclipse.cosmos.docker.storage
 
-import com.amazonaws.services.s3.transfer.TransferManager
 import com.lilaceclipse.cosmos.docker.config.EnvironmentConfig
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.apache.commons.io.FileUtils
+import software.amazon.awssdk.transfer.s3.S3TransferManager
+import software.amazon.awssdk.transfer.s3.model.DirectoryDownload
+import software.amazon.awssdk.transfer.s3.model.DirectoryUpload
 import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
 import javax.inject.Inject
 
 class S3Storage @Inject constructor(
-    private val transferManager: TransferManager,
+    private val transferManager: S3TransferManager,
     environmentConfig: EnvironmentConfig
 ) {
 
@@ -32,10 +34,15 @@ class S3Storage @Inject constructor(
     fun downloadMinecraft(storageDir: Path, serverS3KeySuffix: String) {
         log.info { "Starting download" }
         val serverS3Key = serverS3KeyPrefix + serverS3KeySuffix
-        val download = transferManager.downloadDirectory(
-            serverS3Bucket, serverS3Key, tmpStorageDir.toFile())
-
-        download.waitForCompletion()
+        
+        val downloadResult: DirectoryDownload = transferManager.downloadDirectory { builder ->
+            builder.destination(tmpStorageDir)
+                .bucket(serverS3Bucket)
+                .listObjectsV2RequestTransformer { req -> req.prefix(serverS3Key) }
+        }
+        
+        downloadResult.completionFuture().join()
+        
         log.info { "Download complete" }
         
         // Directory is placed embedded in the intended storage dir, need to move it one up
@@ -49,10 +56,14 @@ class S3Storage @Inject constructor(
         // Delete re-creatable files before upload
         foldersToExcludeFromUpload.forEach { FileUtils.deleteDirectory(storageDir.resolve(it).toFile()) }
 
-        val upload = transferManager.uploadDirectory(
-            serverS3Bucket, serverS3Key, storageDir.toFile(), true)
-
-        upload.waitForCompletion()
+        val uploadResult: DirectoryUpload = transferManager.uploadDirectory { builder ->
+            builder.source(storageDir)
+                .bucket(serverS3Bucket)
+                .s3Prefix(serverS3Key)
+        }
+        
+        uploadResult.completionFuture().join()
+        
         log.info { "Upload complete" }
     }
 }

@@ -4,18 +4,25 @@ import com.amazonaws.services.ec2.AmazonEC2
 import com.amazonaws.services.ec2.AmazonEC2ClientBuilder
 import com.amazonaws.services.ecs.AmazonECS
 import com.amazonaws.services.ecs.AmazonECSClientBuilder
-import com.amazonaws.services.s3.transfer.TransferManager
-import com.amazonaws.services.s3.transfer.TransferManagerBuilder
 import dagger.Module
 import dagger.Provides
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient
+import software.amazon.awssdk.services.s3.S3AsyncClient
+import software.amazon.awssdk.transfer.s3.S3TransferManager
 
 @Module
 class CosmosModule {
 
     @Provides
-    fun provideTransferManager() : TransferManager {
-        return TransferManagerBuilder.defaultTransferManager()
+    fun provideS3AsyncClient(): S3AsyncClient {
+        return S3AsyncClient.create()
+    }
+
+    @Provides
+    fun provideTransferManager(s3AsyncClient: S3AsyncClient): S3TransferManager {
+        return S3TransferManager.builder()
+            .s3Client(s3AsyncClient)
+            .build()
     }
 
     @Provides
