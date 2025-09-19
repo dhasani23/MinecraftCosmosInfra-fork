@@ -1,22 +1,21 @@
 package com.lilaceclipse.cosmos.lambda.handler
 
-import com.amazonaws.services.ec2.AmazonEC2
-import com.amazonaws.services.ec2.model.DescribeNetworkInterfacesRequest
-import com.amazonaws.services.ecs.AmazonECS
-import com.amazonaws.services.ecs.model.DescribeTasksRequest
-import com.amazonaws.services.ecs.model.ListTasksRequest
-import com.amazonaws.services.ecs.model.ListTasksResult
 import com.lilaceclipse.cosmos.common.model.CosmosRequest.StatusRequest
 import com.lilaceclipse.cosmos.common.model.CosmosResponse
 import com.lilaceclipse.cosmos.common.model.CosmosResponse.StatusResponse
 import com.lilaceclipse.cosmos.lambda.util.EnvVarProvider
 import io.github.oshai.kotlinlogging.KotlinLogging
+import software.amazon.awssdk.services.ec2.Ec2Client
+import software.amazon.awssdk.services.ec2.model.DescribeNetworkInterfacesRequest
+import software.amazon.awssdk.services.ecs.EcsClient
+import software.amazon.awssdk.services.ecs.model.DescribeTasksRequest
+import software.amazon.awssdk.services.ecs.model.ListTasksRequest
 import javax.inject.Inject
 
 class StatusRequestHandler @Inject constructor(
     private val envVarProvider: EnvVarProvider,
-    private val ecsClient: AmazonECS,
-    private val ec2Client: AmazonEC2
+    private val ecsClient: EcsClient,
+    private val ec2Client: Ec2Client
 ) {
     private val log = KotlinLogging.logger {}
 
@@ -29,28 +28,32 @@ class StatusRequestHandler @Inject constructor(
         val listTaskResult = listActiveTasks()
 
         log.info { "Determining status" }
-        when (listTaskResult.taskArns.size) {
+        when (listTaskResult.taskArns().size) {
             0 -> {
                 status = "STOPPED"
             }
             1 -> {
                 status = "RUNNING"
-                val describeTaskResult = ecsClient.describeTasks(
-                    DescribeTasksRequest()
-                    .withTasks(listTaskResult.taskArns[0])
-                    .withCluster(envVarProvider.clusterArn))
+                val describeTaskRequest = DescribeTasksRequest.builder()
+                    .tasks(listTaskResult.taskArns().get(0))
+                    .cluster(envVarProvider.clusterArn)
+                    .build()
+                    
+                val describeTaskResult = ecsClient.describeTasks(describeTaskRequest)
 
                 val elasticNetworkInterface = describeTaskResult
-                    .tasks[0]
-                    .attachments[0]
-                    .details.first { it.name == "networkInterfaceId" }
-                    .value
+                    .tasks().get(0)
+                    .attachments().get(0)
+                    .details().first { it.name() == "networkInterfaceId" }
+                    .value()
 
-                val describeEniResult = ec2Client.describeNetworkInterfaces(
-                    DescribeNetworkInterfacesRequest()
-                    .withNetworkInterfaceIds(elasticNetworkInterface))
+                val describeEniRequest = DescribeNetworkInterfacesRequest.builder()
+                    .networkInterfaceIds(elasticNetworkInterface)
+                    .build()
+                    
+                val describeEniResult = ec2Client.describeNetworkInterfaces(describeEniRequest)
 
-                ip = describeEniResult.networkInterfaces[0].association.publicIp
+                ip = describeEniResult.networkInterfaces().get(0).association().publicIp()
             }
             else -> status = "ERROR"
         }
@@ -61,9 +64,9 @@ class StatusRequestHandler @Inject constructor(
         )
     }
 
-    private fun listActiveTasks(): ListTasksResult {
-        return ecsClient.listTasks(
-            ListTasksRequest()
-                .withCluster(envVarProvider.clusterArn))
-    }
+    private fun listActiveTasks() = ecsClient.listTasks(
+        ListTasksRequest.builder()
+            .cluster(envVarProvider.clusterArn)
+            .build()
+    )
 }

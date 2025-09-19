@@ -27,8 +27,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
     // AWS client dependencies
-    implementation("com.amazonaws:aws-java-sdk-sns:1.12.691")
-    implementation("com.amazonaws:aws-java-sdk-ec2:1.12.691")
-    implementation("com.amazonaws:aws-java-sdk-ecs:1.12.691")
+    implementation("software.amazon.awssdk:sns:2.21.42")
+    implementation("software.amazon.awssdk:ec2:2.21.42")
+    implementation("software.amazon.awssdk:ecs:2.21.42")
     implementation("software.amazon.awssdk:dynamodb-enhanced:2.25.31")
 }

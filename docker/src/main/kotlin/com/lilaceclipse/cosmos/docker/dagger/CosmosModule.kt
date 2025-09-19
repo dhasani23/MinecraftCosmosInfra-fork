@@ -1,35 +1,32 @@
 package com.lilaceclipse.cosmos.docker.dagger
 
-import com.amazonaws.services.ec2.AmazonEC2
-import com.amazonaws.services.ec2.AmazonEC2ClientBuilder
-import com.amazonaws.services.ecs.AmazonECS
-import com.amazonaws.services.ecs.AmazonECSClientBuilder
-import com.amazonaws.services.s3.transfer.TransferManager
-import com.amazonaws.services.s3.transfer.TransferManagerBuilder
 import dagger.Module
 import dagger.Provides
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient
+import software.amazon.awssdk.services.ec2.Ec2Client
+import software.amazon.awssdk.services.ecs.EcsClient
+import software.amazon.awssdk.services.s3.S3Client
 
 @Module
 class CosmosModule {
 
     @Provides
-    fun provideTransferManager() : TransferManager {
-        return TransferManagerBuilder.defaultTransferManager()
+    fun provideS3Client(): S3Client {
+        return S3Client.builder().build()
+    }
+
+    @Provides
+    fun provideEc2Client(): Ec2Client {
+        return Ec2Client.builder().build()
+    }
+    
+    @Provides
+    fun provideEcsClient(): EcsClient {
+        return EcsClient.builder().build()
     }
 
     @Provides
     fun provideDynamoDbEnhancedClient(): DynamoDbEnhancedClient {
         return DynamoDbEnhancedClient.create()
-    }
-
-    @Provides
-    fun provideAmazonEC2():  AmazonEC2 {
-        return AmazonEC2ClientBuilder.defaultClient()
-    }
-
-    @Provides
-    fun provideAmazonECS(): AmazonECS {
-        return AmazonECSClientBuilder.defaultClient()
     }
 }
