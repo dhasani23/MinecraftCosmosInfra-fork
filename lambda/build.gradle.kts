@@ -28,7 +28,7 @@ dependencies {
 
     // AWS client dependencies
     implementation("com.amazonaws:aws-java-sdk-sns:1.12.691")
-    implementation("com.amazonaws:aws-java-sdk-ec2:1.12.691")
+    implementation("software.amazon.awssdk:ec2:2.21.42")
     implementation("com.amazonaws:aws-java-sdk-ecs:1.12.691")
     implementation("software.amazon.awssdk:dynamodb-enhanced:2.25.31")
 }

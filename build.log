@@ -1,0 +1,217 @@
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :cdk:clean
+> Task :client:clean
+> Task :common:clean
+> Task :docker:clean
+> Task :lambda:clean
+> Task :cdk:checkKotlinGradlePluginConfigurationErrors
+> Task :cdk:processResources NO-SOURCE
+> Task :cdk:processTestResources NO-SOURCE
+> Task :client:checkKotlinGradlePluginConfigurationErrors
+> Task :common:checkKotlinGradlePluginConfigurationErrors
+> Task :common:processResources NO-SOURCE
+> Task :client:processResources
+> Task :client:processTestResources NO-SOURCE
+> Task :common:processTestResources NO-SOURCE
+> Task :docker:checkKotlinGradlePluginConfigurationErrors
+> Task :docker:processResources
+> Task :docker:processTestResources NO-SOURCE
+> Task :lambda:checkKotlinGradlePluginConfigurationErrors
+> Task :lambda:processResources
+> Task :lambda:processTestResources NO-SOURCE
+> Task :common:kaptGenerateStubsKotlin
+> Task :cdk:kaptGenerateStubsKotlin
+
+> Task :common:kaptKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :cdk:kaptKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :common:compileKotlin
+> Task :common:compileJava NO-SOURCE
+> Task :common:classes UP-TO-DATE
+> Task :common:jar
+> Task :common:assemble
+> Task :common:kaptGenerateStubsTestKotlin
+
+> Task :common:kaptTestKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :lambda:kaptGenerateStubsKotlin
+> Task :client:kaptGenerateStubsKotlin
+
+> Task :cdk:compileKotlin
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/cdk/src/main/kotlin/com/lilaceclipse/cosmos/cdk/MinecraftCosmosStack.kt:11:59 'DnsValidatedCertificate' is deprecated. Deprecated in Java
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/cdk/src/main/kotlin/com/lilaceclipse/cosmos/cdk/MinecraftCosmosStack.kt:54:13 Variable 'distribution' is never used
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/cdk/src/main/kotlin/com/lilaceclipse/cosmos/cdk/MinecraftCosmosStack.kt:58:20 Variable 'repository' is never used
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/cdk/src/main/kotlin/com/lilaceclipse/cosmos/cdk/MinecraftCosmosStack.kt:165:27 'DnsValidatedCertificate' is deprecated. Deprecated in Java
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/cdk/src/main/kotlin/com/lilaceclipse/cosmos/cdk/MinecraftCosmosStack.kt:165:51 'Builder' is deprecated. Deprecated in Java
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/cdk/src/main/kotlin/com/lilaceclipse/cosmos/cdk/MinecraftCosmosStack.kt:165:59 'create(Construct!, String!): DnsValidatedCertificate.Builder!' is deprecated. Deprecated in Java
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/cdk/src/main/kotlin/com/lilaceclipse/cosmos/cdk/MinecraftCosmosStack.kt:169:14 'build(): DnsValidatedCertificate!' is deprecated. Deprecated in Java
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/cdk/src/main/kotlin/com/lilaceclipse/cosmos/cdk/MinecraftCosmosStack.kt:214:14 'cidr(String!): VpcProps.Builder!' is deprecated. Deprecated in Java
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/cdk/src/main/kotlin/com/lilaceclipse/cosmos/cdk/MinecraftCosmosStack.kt:232:86 Parameter 'cluster' is never used
+
+> Task :cdk:compileJava NO-SOURCE
+> Task :cdk:classes UP-TO-DATE
+> Task :common:compileTestKotlin
+> Task :cdk:jar
+> Task :cdk:startScripts
+> Task :docker:kaptGenerateStubsKotlin
+
+> Task :client:kaptKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :lambda:kaptKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :cdk:distTar
+> Task :cdk:distZip
+> Task :cdk:assemble
+> Task :cdk:kaptGenerateStubsTestKotlin
+> Task :common:compileTestJava NO-SOURCE
+> Task :common:testClasses UP-TO-DATE
+
+> Task :cdk:kaptTestKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+
+> Task :common:test
+> Task :cdk:compileTestKotlin NO-SOURCE
+> Task :cdk:compileTestJava NO-SOURCE
+> Task :cdk:testClasses UP-TO-DATE
+> Task :cdk:test NO-SOURCE
+> Task :cdk:check UP-TO-DATE
+> Task :cdk:build
+> Task :common:check
+> Task :common:build
+
+> Task :client:compileKotlin
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/client/src/main/kotlin/com/lilaceclipse/cosmos/client/Main.kt:14:9 Variable 'log' is never used
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/client/src/main/kotlin/com/lilaceclipse/cosmos/client/dagger/EnvironmentModule.kt:24:13 'when' is exhaustive so 'else' is redundant here
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/client/src/main/kotlin/com/lilaceclipse/cosmos/client/model/FileUtil.kt:9:48 'toLowerCase(): String' is deprecated. Use lowercase() instead.
+
+> Task :client:compileJava
+> Task :client:classes
+
+> Task :docker:kaptKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+
+> Task :client:jar
+> Task :client:startScripts
+
+> Task :lambda:compileKotlin
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/lambda/src/main/kotlin/com/lilaceclipse/cosmos/lambda/handler/ActiveServerRequestHandler.kt:15:23 Parameter 'request' is never used
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/lambda/src/main/kotlin/com/lilaceclipse/cosmos/lambda/handler/ClientVersionRequestHandler.kt:15:23 Parameter 'request' is never used
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/lambda/src/main/kotlin/com/lilaceclipse/cosmos/lambda/handler/StatusRequestHandler.kt:23:23 Parameter 'request' is never used
+
+> Task :client:distTar
+> Task :client:distZip
+> Task :client:shadowJar
+> Task :client:startShadowScripts
+> Task :client:shadowDistTar
+> Task :client:shadowDistZip
+> Task :client:assemble
+> Task :client:kaptGenerateStubsTestKotlin
+> Task :lambda:compileJava
+> Task :lambda:classes
+> Task :lambda:jar
+> Task :lambda:assemble
+
+> Task :client:kaptTestKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :lambda:kaptGenerateStubsTestKotlin
+> Task :client:compileTestKotlin
+> Task :client:compileTestJava NO-SOURCE
+> Task :client:testClasses UP-TO-DATE
+
+> Task :lambda:kaptTestKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :client:test
+> Task :client:check
+> Task :client:build
+> Task :lambda:compileTestKotlin
+> Task :lambda:compileTestJava NO-SOURCE
+> Task :lambda:testClasses UP-TO-DATE
+
+> Task :docker:compileKotlin
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/docker/src/main/kotlin/com/lilaceclipse/cosmos/docker/daemon/CosmosCli.kt:39:13 'info(String?): Unit' is deprecated. Use info {} instead
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/docker/src/main/kotlin/com/lilaceclipse/cosmos/docker/util/EcsUtil.kt:31:13 'info(String?): Unit' is deprecated. Use info {} instead
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/docker/src/main/kotlin/com/lilaceclipse/cosmos/docker/util/EcsUtil.kt:32:13 'info(String?): Unit' is deprecated. Use info {} instead
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/docker/src/main/kotlin/com/lilaceclipse/cosmos/docker/util/EcsUtil.kt:33:13 'info(String?): Unit' is deprecated. Use info {} instead
+
+> Task :lambda:test
+> Task :docker:compileJava
+> Task :docker:classes
+> Task :docker:jar
+> Task :docker:startScripts
+> Task :docker:distTar
+> Task :docker:distZip
+> Task :docker:shadowJar
+> Task :docker:startShadowScripts
+> Task :docker:shadowDistTar
+> Task :docker:shadowDistZip
+> Task :docker:assemble
+> Task :lambda:check
+> Task :lambda:build
+> Task :docker:kaptGenerateStubsTestKotlin
+
+> Task :docker:kaptTestKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :docker:compileTestKotlin
+> Task :docker:compileTestJava NO-SOURCE
+> Task :docker:testClasses UP-TO-DATE
+> Task :docker:test
+> Task :docker:check
+> Task :docker:build
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.7/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 42s
+81 actionable tasks: 72 executed, 9 up-to-date

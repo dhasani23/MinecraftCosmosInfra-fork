@@ -1,0 +1,20 @@
+<li><a href="#downloadDirectory(software.amazon.awssdk.transfer.s3.model.DownloadDirectoryRequest)" tabindex="0">downloadDirectory(DownloadDirectoryRequest)</a></li>
+<li><a href="#downloadDirectory(java.util.function.Consumer)" tabindex="0">downloadDirectory(Consumer)</a></li>
+<li><a href="#copy(software.amazon.awssdk.transfer.s3.model.CopyRequest)" tabindex="0">copy(CopyRequest)</a></li>
+<li><a href="#copy(java.util.function.Consumer)" tabindex="0">copy(Consumer)</a></li>
+<li><a href="#create()" tabindex="0">create()</a></li>
+<li><a href="#builder()" tabindex="0">builder()</a></li>
+</ol>
+</li>
+</ol>
+</nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+--
+            transferManager.downloadDirectory(
+                 DownloadDirectoryRequest.builder()
+                                         .destination(Paths.get("destination/directory"))
+                                         .bucket("bucket")
+                                         .listObjectsV2RequestTransformer(l -&gt; l.prefix("prefix"))
+                                         .build());
+        // Wait for the transfer to complete

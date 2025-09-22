@@ -30,7 +30,7 @@ dependencies {
 
     // AWS
     implementation("com.amazonaws:aws-java-sdk-s3:1.12.304") // TODO migrate to AWS SDK v2
-    implementation("com.amazonaws:aws-java-sdk-ec2:1.12.691")
+    implementation("software.amazon.awssdk:ec2:2.21.42")
     implementation("com.amazonaws:aws-java-sdk-ecs:1.12.691")
     implementation("software.amazon.awssdk:dynamodb-enhanced:2.25.31")
 

@@ -1,7 +1,7 @@
 package com.lilaceclipse.cosmos.lambda.handler
 
-import com.amazonaws.services.ec2.AmazonEC2
-import com.amazonaws.services.ec2.model.DescribeNetworkInterfacesRequest
+import software.amazon.awssdk.services.ec2.Ec2Client
+import software.amazon.awssdk.services.ec2.model.DescribeNetworkInterfacesRequest
 import com.amazonaws.services.ecs.AmazonECS
 import com.amazonaws.services.ecs.model.DescribeTasksRequest
 import com.amazonaws.services.ecs.model.ListTasksRequest
@@ -16,7 +16,7 @@ import javax.inject.Inject
 class StatusRequestHandler @Inject constructor(
     private val envVarProvider: EnvVarProvider,
     private val ecsClient: AmazonECS,
-    private val ec2Client: AmazonEC2
+    private val ec2Client: Ec2Client
 ) {
     private val log = KotlinLogging.logger {}
 
@@ -47,10 +47,11 @@ class StatusRequestHandler @Inject constructor(
                     .value
 
                 val describeEniResult = ec2Client.describeNetworkInterfaces(
-                    DescribeNetworkInterfacesRequest()
-                    .withNetworkInterfaceIds(elasticNetworkInterface))
+                    DescribeNetworkInterfacesRequest.builder()
+                    .networkInterfaceIds(elasticNetworkInterface)
+                    .build())
 
-                ip = describeEniResult.networkInterfaces[0].association.publicIp
+                ip = describeEniResult.networkInterfaces()[0].association().publicIp()
             }
             else -> status = "ERROR"
         }

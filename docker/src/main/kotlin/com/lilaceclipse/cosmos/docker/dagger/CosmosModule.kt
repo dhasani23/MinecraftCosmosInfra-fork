@@ -1,7 +1,6 @@
 package com.lilaceclipse.cosmos.docker.dagger
 
-import com.amazonaws.services.ec2.AmazonEC2
-import com.amazonaws.services.ec2.AmazonEC2ClientBuilder
+import software.amazon.awssdk.services.ec2.Ec2Client
 import com.amazonaws.services.ecs.AmazonECS
 import com.amazonaws.services.ecs.AmazonECSClientBuilder
 import com.amazonaws.services.s3.transfer.TransferManager
@@ -24,8 +23,8 @@ class CosmosModule {
     }
 
     @Provides
-    fun provideAmazonEC2():  AmazonEC2 {
-        return AmazonEC2ClientBuilder.defaultClient()
+    fun provideEc2Client(): Ec2Client {
+        return Ec2Client.create()
     }
 
     @Provides

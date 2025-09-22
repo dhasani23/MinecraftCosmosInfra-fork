@@ -1,0 +1,64 @@
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :common:checkKotlinGradlePluginConfigurationErrors
+> Task :common:kaptGenerateStubsKotlin UP-TO-DATE
+> Task :common:kaptKotlin UP-TO-DATE
+> Task :common:compileKotlin UP-TO-DATE
+> Task :common:compileJava NO-SOURCE
+> Task :common:processResources NO-SOURCE
+> Task :common:classes UP-TO-DATE
+> Task :common:jar UP-TO-DATE
+> Task :lambda:checkKotlinGradlePluginConfigurationErrors
+> Task :lambda:processResources UP-TO-DATE
+> Task :lambda:processTestResources NO-SOURCE
+> Task :lambda:kaptGenerateStubsKotlin
+
+> Task :lambda:kaptKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :lambda:compileKotlin
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/lambda/src/main/kotlin/com/lilaceclipse/cosmos/lambda/handler/ActiveServerRequestHandler.kt:15:23 Parameter 'request' is never used
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/lambda/src/main/kotlin/com/lilaceclipse/cosmos/lambda/handler/ClientVersionRequestHandler.kt:15:23 Parameter 'request' is never used
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/lambda/src/main/kotlin/com/lilaceclipse/cosmos/lambda/handler/StatusRequestHandler.kt:23:23 Parameter 'request' is never used
+
+> Task :lambda:compileJava
+> Task :lambda:classes
+> Task :lambda:jar
+> Task :lambda:assemble
+> Task :lambda:kaptGenerateStubsTestKotlin
+
+> Task :lambda:kaptTestKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :lambda:compileTestKotlin
+> Task :lambda:compileTestJava NO-SOURCE
+> Task :lambda:testClasses UP-TO-DATE
+> Task :lambda:test
+> Task :lambda:check
+> Task :lambda:build
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.7/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 8s
+26 actionable tasks: 12 executed, 14 up-to-date

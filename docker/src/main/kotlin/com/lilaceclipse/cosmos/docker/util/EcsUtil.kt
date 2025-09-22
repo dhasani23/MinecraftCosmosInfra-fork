@@ -1,9 +1,9 @@
 package com.lilaceclipse.cosmos.docker.util
 
 
-import com.amazonaws.services.ec2.AmazonEC2
-import com.amazonaws.services.ec2.model.DescribeNetworkInterfacesRequest
-import com.amazonaws.services.ec2.model.Filter
+import software.amazon.awssdk.services.ec2.Ec2Client
+import software.amazon.awssdk.services.ec2.model.DescribeNetworkInterfacesRequest
+import software.amazon.awssdk.services.ec2.model.Filter
 import com.amazonaws.services.ecs.AmazonECS
 import com.amazonaws.services.ecs.model.DescribeTasksRequest
 import io.github.oshai.kotlinlogging.KotlinLogging
@@ -11,7 +11,7 @@ import java.net.URL
 import javax.inject.Inject
 
 class EcsUtil @Inject constructor(
-    private val amazonEC2: AmazonEC2,
+    private val ec2Client: Ec2Client,
     private val amazonECS: AmazonECS
 ) {
     private val log = KotlinLogging.logger {}
@@ -45,15 +45,16 @@ class EcsUtil @Inject constructor(
 
             if (networkInterfaceId != null) {
                 // Describe the network interface to get the public IP address
-                val describeNetworkInterfacesRequest = DescribeNetworkInterfacesRequest()
-                    .withFilters(
-                        Filter("network-interface-id").withValues(networkInterfaceId)
+                val describeNetworkInterfacesRequest = DescribeNetworkInterfacesRequest.builder()
+                    .filters(
+                        Filter.builder().name("network-interface-id").values(networkInterfaceId).build()
                     )
-                val describeNetworkInterfacesResult = amazonEC2.describeNetworkInterfaces(describeNetworkInterfacesRequest)
+                    .build()
+                val describeNetworkInterfacesResult = ec2Client.describeNetworkInterfaces(describeNetworkInterfacesRequest)
 
-                val publicIp = describeNetworkInterfacesResult.networkInterfaces?.firstOrNull()
-                    ?.association
-                    ?.publicIp
+                val publicIp = describeNetworkInterfacesResult.networkInterfaces()?.firstOrNull()
+                    ?.association()
+                    ?.publicIp()
 
                 return publicIp!!
             }

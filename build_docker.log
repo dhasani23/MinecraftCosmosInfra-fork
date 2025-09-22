@@ -1,0 +1,72 @@
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :common:checkKotlinGradlePluginConfigurationErrors
+> Task :common:kaptGenerateStubsKotlin UP-TO-DATE
+> Task :common:kaptKotlin UP-TO-DATE
+> Task :common:compileKotlin UP-TO-DATE
+> Task :common:compileJava NO-SOURCE
+> Task :common:processResources NO-SOURCE
+> Task :common:classes UP-TO-DATE
+> Task :common:jar UP-TO-DATE
+> Task :docker:checkKotlinGradlePluginConfigurationErrors
+> Task :docker:processResources UP-TO-DATE
+> Task :docker:processTestResources NO-SOURCE
+> Task :docker:kaptGenerateStubsKotlin
+
+> Task :docker:kaptKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+
+> Task :docker:compileKotlin
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/docker/src/main/kotlin/com/lilaceclipse/cosmos/docker/daemon/CosmosCli.kt:39:13 'info(String?): Unit' is deprecated. Use info {} instead
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/docker/src/main/kotlin/com/lilaceclipse/cosmos/docker/util/EcsUtil.kt:31:13 'info(String?): Unit' is deprecated. Use info {} instead
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/docker/src/main/kotlin/com/lilaceclipse/cosmos/docker/util/EcsUtil.kt:32:13 'info(String?): Unit' is deprecated. Use info {} instead
+w: file:///local/home/davhasan/workplace/MinecraftCosmosInfra-fork/docker/src/main/kotlin/com/lilaceclipse/cosmos/docker/util/EcsUtil.kt:33:13 'info(String?): Unit' is deprecated. Use info {} instead
+
+> Task :docker:compileJava
+> Task :docker:classes
+> Task :docker:jar
+> Task :docker:startScripts
+> Task :docker:distTar
+> Task :docker:distZip
+> Task :docker:shadowJar
+> Task :docker:startShadowScripts
+> Task :docker:shadowDistTar
+> Task :docker:shadowDistZip
+> Task :docker:assemble
+> Task :docker:kaptGenerateStubsTestKotlin
+
+> Task :docker:kaptTestKotlin
+Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+Run the build with '--info' for more details.
+warning: The following options were not recognized by any processor: '[project, kapt.kotlin.generated]'
+
+> Task :docker:compileTestKotlin
+> Task :docker:compileTestJava NO-SOURCE
+> Task :docker:testClasses UP-TO-DATE
+> Task :docker:test
+> Task :docker:check
+> Task :docker:build
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.7/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 53s
+33 actionable tasks: 19 executed, 14 up-to-date
